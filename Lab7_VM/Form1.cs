@@ -16,7 +16,7 @@ namespace Lab7_VM
 
         public Form1()
         {
-            foreach (var (x, y) in DifferentialEquations.GetPureEuler(Fuc, 0, 1000, 1.0/12.0, 60))
+            foreach (var (x, y) in DifferentialEquations.GetModifiedEuler(Fuc, 0, 1000, 1.0/12.0, 61))
             {
                 Console.WriteLine(x.ToString() + ' ' + y.ToString());
             }

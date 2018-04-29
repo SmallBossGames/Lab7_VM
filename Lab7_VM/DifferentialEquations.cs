@@ -26,7 +26,7 @@ namespace Lab7_VM
             {
                 yield return (x0, y0);
                 y0 += h * f(x0 + h / 2, y0 + h / 2 * f(x0, y0));
-                x0 += h / 2;
+                x0 += h;
             }
         }
     }
