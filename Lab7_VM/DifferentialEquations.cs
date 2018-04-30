@@ -54,20 +54,22 @@ namespace Lab7_VM
         private static double[,] GetBoundaryMatrix(BoundaryInput input, int count)
         {
             double h = (input.b - input.a) / count;
+            int N = count - 1;
 
-            double Alpha(int i) => i == count ? -input.d2 : 1 - (input.p(i) * h) / 2.0;
-            double Beta(int i) => i == 0 ? h * input.c1 - input.c2 : i == count ? h * input.d1 + input.d2 : input.q(i) * h * h - 2;
-            double Gamma(int i) => i == 0 ? input.c2 : 1 + input.p(i) * h / 2.0;
-            double Phi(int i) => i == 0 ? h * input.c : i == count ? h * input.d : input.f(i) * h * h;
 
-            var outputMatrix = new double[count + 1, count + 2];
+            double Alpha(int i) => i == N ? -input.d2 : 1 - (input.p(i*h) * h) / 2.0;
+            double Beta(int i) => i == 0 ? h * input.c1 - input.c2 : i == N ? h * input.d1 + input.d2 : input.q(i*h) * h * h - 2;
+            double Gamma(int i) => i == 0 ? input.c2 : 1 + input.p(i*h) * h / 2.0;
+            double Phi(int i) => i == 0 ? h * input.c : i == N ? h * input.d : input.f(i*h) * h * h;
 
-            for (int i = 0; i <= count; i++)
+            var outputMatrix = new double[count, count + 1];
+
+            for (int i = 0; i < count; i++)
             {
                 if (i != 0) outputMatrix[i, i - 1] = Alpha(i);
                 outputMatrix[i, i] = Beta(i);
-                if (i != count) outputMatrix[i, i + 1] = Gamma(i);
-                outputMatrix[i, count + 1] = Phi(i);
+                if (i != N) outputMatrix[i, i + 1] = Gamma(i);
+                outputMatrix[i, count] = Phi(i);
             }
 
             return outputMatrix;
@@ -82,7 +84,7 @@ namespace Lab7_VM
                 c, c1, c2, 
                 d, d1, d2;
 
-            BoundaryInput(
+            public BoundaryInput(
                 BoundaryValueFunction p,
                 BoundaryValueFunction q,
                 BoundaryValueFunction f,
