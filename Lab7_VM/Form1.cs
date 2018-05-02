@@ -19,7 +19,7 @@ namespace Lab7_VM
         double QFunc(double x) => 12.0 / Math.Sqrt(1 - x * x);
 
         public Form1()
-        {        
+        {
             DifferentialEquations.BoundaryInput input =
                 new DifferentialEquations.BoundaryInput(
                     PFunc, QFunc, x => 0,
@@ -38,7 +38,7 @@ namespace Lab7_VM
 
         private void EulerButton_Click(object sender, EventArgs e)
         {
-            dataGridView1.ColumnCount = 3;
+            dataGridView1.ColumnCount = 4;
             dataGridView1.RowCount = Convert.ToInt32(CountTextBox.Text);
             int i = 0;
 
@@ -53,6 +53,7 @@ namespace Lab7_VM
 
         private void ModifiedEulerButton_Click(object sender, EventArgs e)
         {
+            dataGridView1.RowCount = Convert.ToInt32(CountTextBox.Text);
             chart1.Series[1].Points.Clear();
 
             int i = 0;
@@ -66,7 +67,18 @@ namespace Lab7_VM
 
         private void CryButton_Click(object sender, EventArgs e)
         {
+            dataGridView1.RowCount = Convert.ToInt32(CountTextBox.Text);
 
+            double[] array = new double[Convert.ToInt32(CountTextBox.Text)];
+
+            DifferentialEquations.BoundaryInput input = new DifferentialEquations.BoundaryInput(PFunc, QFunc, x => 0, 0, 0.8, 0, 1, 1, 0.1, 1, 1);
+
+            array = DifferentialEquations.GetBoundaryValue(input, Convert.ToInt32(CountTextBox.Text));
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                dataGridView1[3, i].Value = array[i];                
+            }
         }
     }
 }
