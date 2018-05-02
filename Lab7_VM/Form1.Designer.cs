@@ -30,10 +30,11 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.XTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -109,12 +110,17 @@
             this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(12, 331);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(387, 351);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Метод Эйлера";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Модифицированный метод Эйлера";
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Size = new System.Drawing.Size(629, 351);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
@@ -124,14 +130,14 @@
             this.chart2.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.chart2.Legends.Add(legend4);
-            this.chart2.Location = new System.Drawing.Point(405, 331);
+            this.chart2.Location = new System.Drawing.Point(647, 331);
             this.chart2.Name = "chart2";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            series4.YValuesPerPoint = 2;
-            this.chart2.Series.Add(series4);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            series6.YValuesPerPoint = 2;
+            this.chart2.Series.Add(series6);
             this.chart2.Size = new System.Drawing.Size(383, 351);
             this.chart2.TabIndex = 7;
             this.chart2.Text = "chart2";
@@ -144,6 +150,7 @@
             this.EulerButton.TabIndex = 8;
             this.EulerButton.Text = "Решить методом Эйлера";
             this.EulerButton.UseVisualStyleBackColor = true;
+            this.EulerButton.Click += new System.EventHandler(this.EulerButton_Click);
             // 
             // ModifiedEulerButton
             // 
@@ -153,6 +160,7 @@
             this.ModifiedEulerButton.TabIndex = 9;
             this.ModifiedEulerButton.Text = "Решить модифицированным методом Эйлера";
             this.ModifiedEulerButton.UseVisualStyleBackColor = true;
+            this.ModifiedEulerButton.Click += new System.EventHandler(this.ModifiedEulerButton_Click);
             // 
             // dataGridView1
             // 

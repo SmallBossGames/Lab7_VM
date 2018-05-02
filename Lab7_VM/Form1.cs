@@ -35,5 +35,25 @@ namespace Lab7_VM
             }
             InitializeComponent();
         }
+
+        private void EulerButton_Click(object sender, EventArgs e)
+        {
+            chart1.Series[0].Points.Clear();
+
+            foreach (var (x, y) in DifferentialEquations.GetPureEuler(Fuc, Convert.ToDouble(XTextBox.Text), Convert.ToDouble(YTextBox.Text), Convert.ToDouble(HTextBox.Text), Convert.ToInt32(CountTextBox.Text)))
+            {
+                chart1.Series[0].Points.AddXY(x, y);
+            }
+        }
+
+        private void ModifiedEulerButton_Click(object sender, EventArgs e)
+        {
+            chart1.Series[1].Points.Clear();
+
+            foreach (var (x, y) in DifferentialEquations.GetModifiedEuler(Fuc, Convert.ToDouble(XTextBox.Text), Convert.ToDouble(YTextBox.Text), Convert.ToDouble(HTextBox.Text), Convert.ToInt32(CountTextBox.Text)))
+            {
+                chart1.Series[1].Points.AddXY(x, y);
+            }
+        }
     }
 }
