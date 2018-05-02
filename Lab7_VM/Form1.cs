@@ -55,5 +55,10 @@ namespace Lab7_VM
                 chart1.Series[1].Points.AddXY(x, y);
             }
         }
+
+        private void CryButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
