@@ -18,11 +18,9 @@ namespace Lab7_VM
 
         double QFunc(double x) => 12.0 / Math.Sqrt(1 - x * x);
 
-        
-
         public Form1()
         {
-            DifferentialEquations.BoundaryInput input = 
+            DifferentialEquations.BoundaryInput input =
                 new DifferentialEquations.BoundaryInput(
                     PFunc, QFunc, x => 0,
                     0, 0.8,
@@ -31,13 +29,11 @@ namespace Lab7_VM
 
             var value = DifferentialEquations.GetBoundaryValue(input, 4);
 
-            foreach (var (x, y) in DifferentialEquations.GetModifiedEuler(Fuc, 0, 1000, 1.0/12.0, 61))
+            foreach (var (x, y) in DifferentialEquations.GetModifiedEuler(Fuc, 0, 1000, 1.0 / 12.0, 61))
             {
                 Console.WriteLine(x.ToString() + ' ' + y.ToString());
             }
             InitializeComponent();
         }
-
-
     }
 }
