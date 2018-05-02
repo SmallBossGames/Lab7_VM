@@ -19,8 +19,7 @@ namespace Lab7_VM
         {
             for (int i = 0; i < count; i++)
             {
-                yield return (x0, y0);
-                y0 = PureFunc(x0);
+                yield return (x0, PureFunc(x0));
                 x0 += h;
             }
         }
