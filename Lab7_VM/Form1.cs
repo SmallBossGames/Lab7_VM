@@ -38,6 +38,7 @@ namespace Lab7_VM
 
         private void EulerButton_Click(object sender, EventArgs e)
         {
+            chart1.Series[2].Points.Clear();
             dataGridView1.ColumnCount = 4;
             dataGridView1.RowCount = Convert.ToInt32(CountTextBox.Text);
             int i = 0, j = 0;

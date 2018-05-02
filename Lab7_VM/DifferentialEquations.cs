@@ -15,7 +15,7 @@ namespace Lab7_VM
 
         static double PureFunc(double x) => -0.5 * Math.Cos(x) + 0.5 * Math.Sin(x) + 10.5 * Math.Exp(-x);
 
-        public static IEnumerable<(double x, double y)> GetPureSolution(double x0,double y0, double h, int count)
+        public static IEnumerable<(double x, double y)> GetPureSolution(double x0, double y0, double h, int count)
         {
             for (int i = 0; i < count; i++)
             {
