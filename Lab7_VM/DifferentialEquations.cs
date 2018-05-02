@@ -31,7 +31,7 @@ namespace Lab7_VM
         /// </summary>
         public static IEnumerable<(double x, double y)> GetModifiedEuler(InputFunction f, double x0, double y0, double h, int count)
         {
-            for(var i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 yield return (x0, y0);
                 y0 += h * f(x0 + h / 2, y0 + h / 2 * f(x0, y0));
@@ -56,11 +56,10 @@ namespace Lab7_VM
             double h = (input.b - input.a) / count;
             int N = count - 1;
 
-
-            double Alpha(int i) => i == N ? -input.d2 : 1 - (input.p(i*h) * h) / 2.0;
-            double Beta(int i) => i == 0 ? h * input.c1 - input.c2 : i == N ? h * input.d1 + input.d2 : input.q(i*h) * h * h - 2;
-            double Gamma(int i) => i == 0 ? input.c2 : 1 + input.p(i*h) * h / 2.0;
-            double Phi(int i) => i == 0 ? h * input.c : i == N ? h * input.d : input.f(i*h) * h * h;
+            double Alpha(int i) => i == N ? -input.d2 : 1 - (input.p(i * h) * h) / 2.0;
+            double Beta(int i) => i == 0 ? h * input.c1 - input.c2 : i == N ? h * input.d1 + input.d2 : input.q(i * h) * h * h - 2;
+            double Gamma(int i) => i == 0 ? input.c2 : 1 + input.p(i * h) * h / 2.0;
+            double Phi(int i) => i == 0 ? h * input.c : i == N ? h * input.d : input.f(i * h) * h * h;
 
             var outputMatrix = new double[count, count + 1];
 
@@ -80,8 +79,8 @@ namespace Lab7_VM
             public BoundaryValueFunction
                 p, q, f;
             public double
-                a, b, 
-                c, c1, c2, 
+                a, b,
+                c, c1, c2,
                 d, d1, d2;
 
             public BoundaryInput(
