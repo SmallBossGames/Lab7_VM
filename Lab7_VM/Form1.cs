@@ -40,7 +40,7 @@ namespace Lab7_VM
         {
             dataGridView1.ColumnCount = 4;
             dataGridView1.RowCount = Convert.ToInt32(CountTextBox.Text);
-            int i = 0;
+            int i = 0, j = 0;
 
             chart1.Series[0].Points.Clear();
 
@@ -48,6 +48,12 @@ namespace Lab7_VM
             {
                 chart1.Series[0].Points.AddXY(x, y);
                 dataGridView1[0, i].Value = (x, y); i++;
+            }
+
+            foreach (var (x, y) in DifferentialEquations.GetPureSolution(Convert.ToDouble(XTextBox.Text), Convert.ToDouble(YTextBox.Text), Convert.ToDouble(HTextBox.Text), Convert.ToInt32(CountTextBox.Text)))
+            {
+                chart1.Series[2].Points.AddXY(x, y);
+                dataGridView1[2, j].Value = (x, y); j++;
             }
         }
 

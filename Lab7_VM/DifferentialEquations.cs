@@ -13,6 +13,18 @@ namespace Lab7_VM
 
         public delegate double BoundaryValueFunction(double x);
 
+        static double PureFunc(double x) => -0.5 * Math.Cos(x) + 0.5 * Math.Sin(x) + 10.5 * Math.Exp(-x);
+
+        public static IEnumerable<(double x, double y)> GetPureSolution(double x0,double y0, double h, int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return (x0, y0);
+                y0 += h * PureFunc(x0);
+                x0 += h;
+            }
+        }
+
         /// <summary>
         /// Возвращает значения численного решения дифференциального уравнения, полученные методом Эйлера
         /// </summary>
