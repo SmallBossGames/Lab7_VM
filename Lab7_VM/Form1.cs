@@ -20,26 +20,13 @@ namespace Lab7_VM
 
         public Form1()
         {
-            DifferentialEquations.BoundaryInput input =
-                new DifferentialEquations.BoundaryInput(
-                    PFunc, QFunc, x => 0,
-                    0, 0.8,
-                    0, 1, 1,
-                    0.1, 1, 1);
-
-            var value = DifferentialEquations.GetBoundaryValue(input, 4);
-
-            foreach (var (x, y) in DifferentialEquations.GetModifiedEuler(Fuc, 0, 1000, 1.0 / 12.0, 61))
-            {
-                Console.WriteLine(x.ToString() + ' ' + y.ToString());
-            }
             InitializeComponent();
         }
 
         private void EulerButton_Click(object sender, EventArgs e)
         {
             chart1.Series[2].Points.Clear();
-            dataGridView1.ColumnCount = 4;
+            dataGridView1.ColumnCount = 3;
             dataGridView1.RowCount = Convert.ToInt32(CountTextBox.Text);
             int i = 0, j = 0;
 
@@ -74,17 +61,18 @@ namespace Lab7_VM
 
         private void CryButton_Click(object sender, EventArgs e)
         {
-            dataGridView1.RowCount = Convert.ToInt32(CountTextBox.Text);
+            CryGridView.ColumnCount = 1;
+            CryGridView.RowCount = Convert.ToInt32(CryCountTextBox.Text);
 
-            double[] array = new double[Convert.ToInt32(CountTextBox.Text)];
+            double[] array = new double[Convert.ToInt32(CryCountTextBox.Text)];
 
             DifferentialEquations.BoundaryInput input = new DifferentialEquations.BoundaryInput(PFunc, QFunc, x => 0, 0, 0.8, 0, 1, 1, 0.1, 1, 1);
 
-            array = DifferentialEquations.GetBoundaryValue(input, Convert.ToInt32(CountTextBox.Text));
+            array = DifferentialEquations.GetBoundaryValue(input, Convert.ToInt32(CryCountTextBox.Text));
 
             for (int i = 0; i < array.Length; i++)
             {
-                dataGridView1[3, i].Value = array[i];                
+                CryGridView[0, i].Value = array[i];
             }
         }
     }
