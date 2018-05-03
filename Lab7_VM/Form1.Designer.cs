@@ -46,8 +46,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CountTextBox = new System.Windows.Forms.TextBox();
             this.CryButton = new System.Windows.Forms.Button();
+            this.CryGridView = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CryCountTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CryGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // XTextBox
@@ -180,11 +184,38 @@
             this.CryButton.UseVisualStyleBackColor = true;
             this.CryButton.Click += new System.EventHandler(this.CryButton_Click);
             // 
+            // CryGridView
+            // 
+            this.CryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CryGridView.Location = new System.Drawing.Point(647, 331);
+            this.CryGridView.Name = "CryGridView";
+            this.CryGridView.Size = new System.Drawing.Size(205, 351);
+            this.CryGridView.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(791, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Количество у: ";
+            // 
+            // CryCountTextBox
+            // 
+            this.CryCountTextBox.Location = new System.Drawing.Point(877, 4);
+            this.CryCountTextBox.Name = "CryCountTextBox";
+            this.CryCountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CryCountTextBox.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1142, 694);
+            this.Controls.Add(this.CryCountTextBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.CryGridView);
             this.Controls.Add(this.CryButton);
             this.Controls.Add(this.CountTextBox);
             this.Controls.Add(this.label4);
@@ -202,6 +233,7 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CryGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +254,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox CountTextBox;
         private System.Windows.Forms.Button CryButton;
+        private System.Windows.Forms.DataGridView CryGridView;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox CryCountTextBox;
     }
 }
 
